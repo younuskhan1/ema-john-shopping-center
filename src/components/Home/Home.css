@@ -28,7 +28,6 @@
 }
 .home-title{
     color: #1C2B35;
-
     font-family: Lato;
     font-size: 35px;
     font-style: normal;
@@ -87,4 +86,40 @@
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
+}
+@media only screen and (max-width: 769px) {
+    .home-image{
+        width: 280px;
+    }
+    .home-parent{
+        margin-bottom: 40px;
+     }
+}
+
+@media only screen and (max-width: 426px) {
+    .home-parent{
+       flex-direction: column-reverse;
+       margin-top: 0px;
+    }
+    .home-image-parent{
+        width: 100%;
+    }
+    .home-image{
+        /* width: 100%; */
+        width: 100%;
+        height: 400px;
+        padding-top: 20px;
+    }
+    .home-text-parent{
+        width: 100%;
+        padding: 30px 20px;
+    }
+    .home-title{
+        font-size: 25px;
+       
+    }
+    .new-arrivals{
+        font-size: 19px;
+        
+    }
 }
