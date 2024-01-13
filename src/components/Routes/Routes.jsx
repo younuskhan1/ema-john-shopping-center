@@ -37,4 +37,5 @@ const myCreatedRoutes = createBrowserRouter([
         ]
     }
 ])
+
 export default myCreatedRoutes;

@@ -6,11 +6,21 @@ const Navbar = () => {
         <div className="nav-parent">
             <div><img src={image} alt="navbar logo" /></div>
             <div className="nav-links">
-                <NavLink to = "/">Home</NavLink>
-                <NavLink to = "/orders">Orders</NavLink>
-                <NavLink to = "/ordersReview">Orders Review</NavLink>
-                <NavLink to = "/manageInventory">Manage Inventory</NavLink>
-                <NavLink to = "/login">Login</NavLink>
+                <NavLink to = "/" className={({ isActive }) =>
+                      isActive ? "active" : ""
+                    }>Home</NavLink>
+                <NavLink to = "/orders" className={({ isActive }) =>
+                      isActive ? "active" : ""
+                    }>Orders</NavLink>
+                <NavLink to = "/ordersReview" className={({ isActive }) =>
+                      isActive ? "active" : ""
+                    }>Orders Review</NavLink>
+                <NavLink to = "/manageInventory" className={({ isActive}) =>
+                      isActive ? "active" : ""
+                    }>Manage Inventory</NavLink>
+                <NavLink to = "/login" className={({ isActive}) =>
+                      isActive ? "active" : ""
+                    }>Login</NavLink>
             </div>
         </div>
     );
