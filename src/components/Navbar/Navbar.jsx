@@ -6,11 +6,11 @@ const Navbar = () => {
         <div className="nav-parent">
             <div><img src={image} alt="navbar logo" /></div>
             <div className="nav-links">
-                <NavLink>Home</NavLink>
-                <NavLink>Order</NavLink>
-                <NavLink>Order Review</NavLink>
-                <NavLink>Manage Inventory</NavLink>
-                <NavLink>Login</NavLink>
+                <NavLink to = "/">Home</NavLink>
+                <NavLink to = "/orders">Orders</NavLink>
+                <NavLink to = "/ordersReview">Orders Review</NavLink>
+                <NavLink to = "/manageInventory">Manage Inventory</NavLink>
+                <NavLink to = "/login">Login</NavLink>
             </div>
         </div>
     );
