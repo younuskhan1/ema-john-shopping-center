@@ -7,8 +7,8 @@ const ErrorPage = () => {
             <div> 
             <div className="image-div"><img className="error-image" src={image} alt="" /></div>
             <p className="error-heading">Oops !!!</p>
-            <p className="error-message">Sorry, The Data is not Available</p>
-            <p className="error-nav"><NavLink to = "/">GO TO HOME</NavLink></p>
+            <p className="error-message">Sorry, The Data is Not Available</p>
+            <p className="error-nav"><NavLink className="error-page-nav" to = "/">GO TO HOME</NavLink></p>
             </div>
         </div>
     );

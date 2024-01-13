@@ -1,0 +1,90 @@
+.home-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.home-text-parent{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-image-parent{
+    width: 40%;
+}
+.home-image{
+    /* width: 100%; */
+    width: 370px;
+    height: 400px;
+}
+
+.discount-parent{
+    margin-bottom: 40px;
+}
+.discount-rate{
+    color: #F90;
+    /* font-size: 15px; */
+}
+.home-title{
+    color: #1C2B35;
+
+    font-family: Lato;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+}
+.new-arrivals{
+    color: #2A414F;
+    font-family: Lato;
+    font-size: 19px;
+    margin-top: 5px;
+}
+
+.shop-now-button-parent{
+    margin-top: 40px;
+}
+.shop-now-button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.shop-now-button:hover,
+.shop-now-button:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.shop-now-button:hover {
+  transform: translateY(-1px);
+}
+
+.shop-now-button:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}

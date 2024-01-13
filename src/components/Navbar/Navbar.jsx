@@ -9,15 +9,15 @@ const Navbar = () => {
                 <NavLink to = "/" className={({ isActive }) =>
                       isActive ? "active" : ""
                     }>Home</NavLink>
+                     <NavLink to = "/products" className={({ isActive}) =>
+                      isActive ? "active" : ""
+                    }>Products</NavLink>
                 <NavLink to = "/orders" className={({ isActive }) =>
                       isActive ? "active" : ""
                     }>Orders</NavLink>
                 <NavLink to = "/ordersReview" className={({ isActive }) =>
                       isActive ? "active" : ""
                     }>Orders Review</NavLink>
-                <NavLink to = "/manageInventory" className={({ isActive}) =>
-                      isActive ? "active" : ""
-                    }>Manage Inventory</NavLink>
                 <NavLink to = "/login" className={({ isActive}) =>
                       isActive ? "active" : ""
                     }>Login</NavLink>

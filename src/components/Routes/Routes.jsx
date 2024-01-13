@@ -3,9 +3,9 @@ import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Home/Home";
 import Orders from "../Orders/Orders";
 import OrdersReview from "../OrdersReview/OrdersReview";
-import ManageInventory from "../ManageInventory/ManageInventory";
 import Login from "../Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import Products from "../Products/Products";
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -18,19 +18,19 @@ const myCreatedRoutes = createBrowserRouter([
                 element : <Home></Home>
             },
             {
-                path: "orders",
+                path: "/products",
+                element : <Products></Products>
+            },
+            {
+                path: "/orders",
                 element : <Orders></Orders>
             },
             {
-                path: "ordersReview",
+                path: "/ordersReview",
                 element : <OrdersReview></OrdersReview>
             },
             {
-                path: "manageInventory",
-                element : <ManageInventory></ManageInventory>
-            },
-            {
-                path: "login",
+                path: "/login",
                 element : <Login></Login>
             },
            

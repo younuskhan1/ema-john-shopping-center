@@ -8,7 +8,6 @@
     width: 100%;
     margin-top: 50px;
     text-align: center;
-    /* border: 2px solid red; */
 }
 .error-image{
     width: 100%;
@@ -33,7 +32,7 @@
     margin-top: 40px;
 }
 
-div a {
+.error-page-nav {
     text-decoration: none;
     color: blue;
     font-weight: 900;
@@ -44,6 +43,6 @@ div a {
     background-color: rgb(227, 227, 227);
 
 }
-div a:hover{
+.error-page-nav:hover{
     background-color: rgb(184, 182, 204);
 }
