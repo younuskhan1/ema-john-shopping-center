@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'; // ES6
 import "./Product.css";
 import Rating from 'react-rating';
 
-const Product = ({product}) => {
+const Product = ({product, ProductCardButtonHandler}) => {
     // console.log(product);
     const {img, name, price, ratings, seller} = product;
     return (
@@ -12,9 +12,9 @@ const Product = ({product}) => {
                 <h3 className='product-name'>{name}</h3>
                 <p className='product-price'>Price : {price}</p>
                 <p className='product-manufacturer'>Manufacturer : {seller}</p>
-                <p className='rating-parent'> Reviews : <span><Rating emptySymbol={<i className="fa-regular fa-star"></i>}
+                <p className='rating-parent'> Reviews  <span><Rating emptySymbol={<i className="fa-regular fa-star"></i>}
                 fullSymbol={<i className="fa-solid fa-star"></i>} initialRating={ratings} readonly/></span></p>
-                <div className='button-container'><button className='product-add-button'>Add To Cart<span className='cart-icon'><i className="fa-solid fa-cart-plus"></i></span></button></div>
+                <div className='button-container'><button className='product-add-button' onClick={()=>ProductCardButtonHandler(product)}>Add To Cart<span className='cart-icon'><i className="fa-solid fa-cart-plus"></i></span></button></div>
             </div>
         </div>
     );
@@ -22,6 +22,7 @@ const Product = ({product}) => {
 
 Product.propTypes = {
     product : PropTypes.object.isRequired, 
+    ProductCardButtonHandler: PropTypes.func.isRequired,
 }
 
 export default Product;
