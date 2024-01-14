@@ -1,0 +1,101 @@
+.product-card{
+    width: 290px;
+    height: 458px;
+    border: 1px solid #95A0A7;
+    border-radius: 12px;
+    padding: 8px;
+    position: relative;
+}
+.product-image{
+    width: 100%;
+    border-radius: 8px;
+    
+}
+.product-name{
+    padding: 15px 0px 0px 6px;
+}
+.product-price, 
+.product-manufacturer,
+.product-ratings{
+    padding: 6px 0px 0px 6px;
+    font-size: 16px;
+    color: gray;
+}
+.rating-parent{
+    padding: 6px 0px 0px 6px;
+    font-size: 16px;
+    color: gray;
+}
+.fa-star{
+    color: gold;
+    font-size: 20px;
+}
+.cart-icon{
+    margin-left: 10px;
+}
+.button-container{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.product-add-button {
+  align-items: center;
+  appearance: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 1px -2px,rgba(0, 0, 0, .14) 0 2px 2px 0,rgba(0, 0, 0, .12) 0 1px 5px 0;
+  box-sizing: border-box;
+  color: #ffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family:sans-serif;
+  font-size: .875rem;
+  font-weight: 500;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: .0892857em;
+  line-height: normal;
+  min-width: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 280ms cubic-bezier(.4, 0, .2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.product-add-button:hover {
+  box-shadow: rgba(0, 0, 0, .2) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
+}
+
+.product-add-button:disabled {
+  background-color: rgba(0, 0, 0, .12);
+  box-shadow: rgba(0, 0, 0, .2) 0 0 0 0, rgba(0, 0, 0, .14) 0 0 0 0, rgba(0, 0, 0, .12) 0 0 0 0;
+  color: rgba(0, 0, 0, .37);
+  cursor: default;
+  pointer-events: none;
+}
+
+.product-add-button:not(:disabled) {
+  background-color: #0064bd;
+}
+
+.product-add-button:focus {
+  box-shadow: rgba(0, 0, 0, .2) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
+}
+
+.product-add-button:active {
+  box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
+  background: #0064bd;
+}
+
