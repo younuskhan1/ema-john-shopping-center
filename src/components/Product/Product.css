@@ -9,6 +9,7 @@
 .product-image{
     width: 100%;
     border-radius: 8px;
+    height: 260px;
     
 }
 .product-name{
@@ -99,3 +100,20 @@
   background: #0064bd;
 }
 
+@media only screen and (max-width: 1025px) {
+  .product-card{
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .product-card{
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .product-card{
+    width: auto;
+  }
+}

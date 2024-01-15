@@ -10,3 +10,37 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+
+@media only screen and (max-width: 1025px) {
+    .productsAndCart{
+        flex-direction: column-reverse;
+        padding: 30px 10px;
+    }
+    .products-card-section{
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .productsAndCart{
+        flex-direction: column-reverse;
+        padding: 30px 10px;
+    }
+    .products-card-section{
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}   
+
+
+@media only screen and (max-width: 426px) {
+    .productsAndCart{
+        flex-direction: column-reverse;
+        padding: 30px 10px;
+    }
+    .products-card-section{
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

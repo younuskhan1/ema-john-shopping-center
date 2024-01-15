@@ -19,6 +19,8 @@ const Cart = ({numOfProducts}) => {
                     }
                 </ul>
             </div>
+            <div><button className='clear-cart-button'>Clear Cart <span className='cart-button-icon'><i className="fa-solid fa-trash-can"></i></span></button></div>
+            <div><button className='review-orders-button'>Review Orders <span className='cart-button-icon'><i className="fa-solid fa-arrow-right"></i></span></button></div>
         </div>
     );
 };
