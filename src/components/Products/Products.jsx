@@ -5,6 +5,7 @@ import "./Products.css";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { clearLocalStorage, setItemsToLocalStorage } from "../LocalStorage/LocalStorage";
 
 
 const Products = () => {
@@ -23,7 +24,15 @@ const Products = () => {
         }
         const newNumOfProducts = [...numOfProducts, product];
         setNumOfProducts(newNumOfProducts);
+        setItemsToLocalStorage(product.id);
+        
     }
+
+    const clearTheLocalStorage = () =>{
+        clearLocalStorage();
+        setNumOfProducts([]);
+    }
+
     return (
         <div className="productsAndCart">
            <ul className="products-card-section">
@@ -31,7 +40,7 @@ const Products = () => {
                     products.map((product, index) => <Product key={index} product = {product} ProductCardButtonHandler={ProductCardButtonHandler}></Product>)
                 }
            </ul>
-           <Cart numOfProducts={numOfProducts}></Cart> 
+           <Cart numOfProducts={numOfProducts} clearTheLocalStorage={clearTheLocalStorage}></Cart> 
            <ToastContainer></ToastContainer>
         </div>
     );
