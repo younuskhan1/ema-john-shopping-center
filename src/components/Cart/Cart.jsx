@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Cart.css";
 
-const Cart = ({numOfProducts, clearTheLocalStorage}) => {
+const Cart = ({items, clearTheLocalStorage}) => {
     return (
         <div className="cart-parent">
             <h3 className="order-summary-heading">Order Summary</h3>
@@ -9,13 +9,13 @@ const Cart = ({numOfProducts, clearTheLocalStorage}) => {
                 <p className='number-of-added-products'>Added Products </p>
                 <div className='shopping-cart-added-products'>
                     <p><i className="fa-solid fa-cart-plus product-basket"></i></p>
-                    <p className='length-of-products'>{numOfProducts.length}</p>
+                    <p className='length-of-products'>{items.length}</p>
                 </div>
             </div>
             <div>
                 <ul className='products-name-parent'>
                     {
-                        numOfProducts.map((product, index) => <p className='products-name' key = {index}>{index+1}. {product.name}</p>)
+                        items.map((product, index) => <p className='products-name' key = {index}>{index+1}. {product.name}</p>)
                     }
                 </ul>
             </div>
@@ -26,7 +26,7 @@ const Cart = ({numOfProducts, clearTheLocalStorage}) => {
 };
 
 Cart.propTypes = {
-numOfProducts:PropTypes.array.isRequired,
+items:PropTypes.array.isRequired,
 clearTheLocalStorage:PropTypes.func.isRequired,
 } 
 

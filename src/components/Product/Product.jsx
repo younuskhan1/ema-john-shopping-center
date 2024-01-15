@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Product.css";
 import Rating from 'react-rating';
+// import { useParams } from 'react-router-dom';
 
 const Product = ({product, ProductCardButtonHandler}) => {
     // console.log(product);
+    // const {id} = useParams();
+    // console.log(id);
     const {img, name, price, ratings, seller} = product;
     return (
         <div>
