@@ -9,15 +9,18 @@ const Product = ({product, ProductCardButtonHandler}) => {
     // console.log(id);
     const {img, name, price, ratings, seller} = product;
     return (
-        <div>
+        <div className='product-card-parent'>
             <div className='product-card'>
-                <div><img className='product-image' src={img} alt="" /></div> 
-                <h3 className='product-name'>{name}</h3>
-                <p className='product-price'>Price : {price}</p>
-                <p className='product-manufacturer'>Manufacturer : {seller}</p>
-                <p className='rating-parent'> Reviews  <span><Rating emptySymbol={<i className="fa-regular fa-star"></i>}
-                fullSymbol={<i className="fa-solid fa-star"></i>} initialRating={ratings} readonly/></span></p>
+                <div className='product-card-text'>
+                    <div><img className='product-image' src={img} alt="" /></div> 
+                    <h3 className='product-name'>{name}</h3>
+                    <p className='product-price'>Price : {price}</p>
+                    <p className='product-manufacturer'>Manufacturer : {seller}</p>
+                    <p className='rating-parent'> Reviews  <span><Rating emptySymbol={<i className="fa-regular fa-star"></i>}
+                    fullSymbol={<i className="fa-solid fa-star"></i>} initialRating={ratings} readonly/></span></p>
+                </div>
                 <div className='button-container'><button className='product-add-button' onClick={()=>ProductCardButtonHandler(product)}>Add To Cart<span className='cart-icon'><i className="fa-solid fa-cart-plus"></i></span></button></div>
+                <div className='view-details-button-parent'><button className='view-details-button'>View Details</button></div>        
             </div>
         </div>
     );

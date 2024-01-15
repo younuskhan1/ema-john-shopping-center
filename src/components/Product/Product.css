@@ -6,6 +6,13 @@
     padding: 8px;
     position: relative;
 }
+
+/* if I keep the cursor on the part of product-card, then the part of product-card-text will be opacity */
+
+.product-card:hover .product-card-text{
+  filter: opacity(20%);
+}
+
 .product-image{
     width: 100%;
     border-radius: 8px;
@@ -34,6 +41,7 @@
 .cart-icon{
     margin-left: 10px;
 }
+
 .button-container{
     width: 100%;
     position: absolute;
@@ -41,6 +49,7 @@
     left: 0px;
     right: 0px;
 }
+
 .product-add-button {
   align-items: center;
   appearance: none;
@@ -100,6 +109,75 @@
   background: #0064bd;
 }
 
+/* Bring the view details button from bottom to center and make it invisible */
+
+.view-details-button-parent{
+  width: 100%;
+  height: 92%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+/* Make the view details button visible by using opacity : 1; when you keep the cursor on the card.  */
+
+.view-details-button-parent:hover{
+  opacity: 1;
+}
+
+.view-details-button {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #F90;
+  border-radius: 3px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 15px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 70%;
+}
+
+.view-details-button:hover {
+  background-color: #F90;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+.view-details-button:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+.view-details-button:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
 @media only screen and (max-width: 1025px) {
   .product-card{
     width: auto;
@@ -117,3 +195,4 @@
     width: auto;
   }
 }
+
