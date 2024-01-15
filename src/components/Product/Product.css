@@ -1,12 +1,16 @@
 .product-card{
     width: 290px;
-    height: 458px;
-    border: 1px solid #95A0A7;
+    height: 438px;
+    /* border: 1px solid #95A0A7; */
     border-radius: 12px;
     padding: 8px;
     position: relative;
 }
 
+.product-card:hover{
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px 0px inset;
+  
+}
 /* if I keep the cursor on the part of product-card, then the part of product-card-text will be opacity */
 
 .product-card:hover .product-card-text{
@@ -42,7 +46,9 @@
     margin-left: 10px;
 }
 
-.button-container{
+/* Bring the add to cart button at bottom and view details button will be centered so view details button in not modified as per our requirement */
+
+.add-button-container{
     width: 100%;
     position: absolute;
     bottom: 0px;
@@ -109,11 +115,11 @@
   background: #0064bd;
 }
 
-/* Bring the view details button from bottom to center and make it invisible */
+/* Bring the two buttons from bottom to center and make them invisible */
 
-.view-details-button-parent{
+.card-two-buttons-container{
   width: 100%;
-  height: 92%;
+  height: 100%;
   top: 0;
   left: 0;
   position: absolute;
@@ -124,11 +130,12 @@
   transition: 0.6s;
 }
 
-/* Make the view details button visible by using opacity : 1; when you keep the cursor on the card.  */
+/* Make the two buttons visible by using opacity : 1; when you keep the cursor on the card.  */
 
-.view-details-button-parent:hover{
+.card-two-buttons-container:hover{
   opacity: 1;
 }
+
 
 .view-details-button {
   appearance: none;
@@ -138,7 +145,7 @@
   border-style: none;
   box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
   box-sizing: border-box;
-  color: #fff;
+  color: #ffff;
   cursor: pointer;
   display: inline-block;
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -159,7 +166,7 @@
   touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
-  width: 70%;
+  width: 100%;
 }
 
 .view-details-button:hover {
