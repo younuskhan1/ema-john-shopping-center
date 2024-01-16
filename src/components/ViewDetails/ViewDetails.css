@@ -10,8 +10,7 @@
 
 .view-details-image-div{
     width: 300px;
-    height: 350px;
-    border: 1px solid red;
+    height: 360px;
 }
 .view-details-image{
     width: 100%;
@@ -20,8 +19,8 @@
 .view-detail-textual-information{
     padding: 20px 0px 15px 15px;
     width: 300px;
-    height: 350px;
-    border: 2px solid blueviolet;
+    height: 360px;
+    border: 1px solid gray;
 }
 .view-category{
     font-family: Arial, Helvetica, sans-serif;
@@ -63,7 +62,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: 60%;
+  width: 70%;
 }
 
 .view-details-add-to-cart-button:hover,
@@ -84,6 +83,10 @@
 .view-cart-icon{
     font-size: 20px;
     margin-right: 10px;
+}
+.view-arrow-icon{
+    font-size: 20px;
+    margin-left: 10px;
 }
 .view-details-add-button-parent{
     text-align: center;

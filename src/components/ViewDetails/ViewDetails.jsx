@@ -8,7 +8,8 @@ import { getItemsFromLocalStorage, setItemsToLocalStorage } from "../LocalStorag
 const ViewDetails = () => {   
     const [product, setProduct] = useState({});
     const [addedItems, setAddedItems] = useState([]);
-    const [agree, setAgree] = useState(false);
+    const [agreeToAdd, setAgreeToAdd] = useState(false);
+    const [buttonRendering, setButtonRendering] = useState("");
 
     const {id} = useParams()
     // console.log(id);
@@ -19,11 +20,17 @@ const ViewDetails = () => {
         const findProduct =  goods?.find((good) => good.id === id);
         setProduct(findProduct);
     },[id,goods]);
-    // console.log(product);
+
+    useEffect(() =>{
+        const findItem =  dataFromLS?.find((data) => data === id);
+        setButtonRendering(findItem);
+    },[id,dataFromLS]);
+
+    // console.log(buttonRendering);
     const handleAddProductAfterView =(id)=>{
         for (let dataId of dataFromLS){
             if(dataId === id){
-                return toast.info("You cannot add the same product for twice time.",{
+                return toast.info("The product is already added. If you want to increase the quantity of this product, press the Orders Review button of products page.",{
                     position: "top-center",
                     theme: "dark",
                    });
@@ -31,7 +38,7 @@ const ViewDetails = () => {
         }
         setItemsToLocalStorage(id);
         const newAddedItems = [...dataFromLS, id];
-        setAgree(true);
+        setAgreeToAdd(true);
         setAddedItems(newAddedItems);
     }
 
@@ -50,10 +57,11 @@ const ViewDetails = () => {
                             <p className='view-of-added-products'>Added Products </p>
                             <div className='view-cart-added-products'>
                                 <p><i className="fa-solid fa-cart-plus view-basket"></i></p>
-                                <p className='view-added-products'>{agree? addedItems.length : dataFromLS.length}</p>
+                                <p className='view-added-products'>{agreeToAdd ? addedItems.length : dataFromLS.length}</p>
                             </div>
                         </div>
-                        <div className="view-details-add-button-parent"><button className="view-details-add-to-cart-button" onClick={() =>{handleAddProductAfterView(id)}}><span className="view-cart-icon"><i className="fa-solid fa-cart-shopping"></i></span>Add to Cart</button></div>
+                        {buttonRendering ? <div className="view-details-add-button-parent"><button className="view-details-add-to-cart-button">Orders Review <span className="view-arrow-icon"><i className="fa-solid fa-arrow-right"></i></span></button></div> :
+                        <div className="view-details-add-button-parent"><button className="view-details-add-to-cart-button" onClick={() =>{handleAddProductAfterView(id)}}><span className="view-cart-icon"><i className="fa-solid fa-cart-shopping"></i></span>Add to Cart</button></div>}          
                 </div>
             </div>
             <ToastContainer></ToastContainer>

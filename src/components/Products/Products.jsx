@@ -39,7 +39,7 @@ const Products = () => {
         
         for (let item of items){
             if(item.id === product.id){
-               return toast.info("You cannot add the same product for twice time.",{
+               return toast.info("The product is already added. If you want to increase the quantity of this product, press the Orders Review button of products page.",{
                 position: "top-center",
                 theme: "dark",
                });
