@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Home/Home";
-import Orders from "../Orders/Orders";
 import OrdersReview from "../OrdersReview/OrdersReview";
 import Login from "../Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Products from "../Products/Products";
+import ViewDetails from "../ViewDetails/ViewDetails";
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -19,12 +19,13 @@ const myCreatedRoutes = createBrowserRouter([
             },
             {
                 path: "/products",
-                loader: () => fetch("products.json"),
+                loader: () => fetch("/products.json"),
                 element : <Products></Products>
             },
-            {
-                path: "/orders",
-                element : <Orders></Orders>
+            {   
+                path: "/viewDetails/:id",
+                loader: () => fetch("/products.json"),
+                element : <ViewDetails></ViewDetails>
             },
             {
                 path: "/ordersReview",

@@ -12,9 +12,9 @@ const Navbar = () => {
                      <NavLink to = "/products" className={({ isActive}) =>
                       isActive ? "active" : ""
                     }>Products</NavLink>
-                <NavLink to = "/orders" className={({ isActive }) =>
+                {/* <NavLink to = "/viewDetails" className={({ isActive }) =>
                       isActive ? "active" : ""
-                    }>Orders</NavLink>
+                    }>View Details</NavLink> */}
                 <NavLink to = "/ordersReview" className={({ isActive }) =>
                       isActive ? "active" : ""
                     }>Orders Review</NavLink>

@@ -8,10 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { clearLocalStorage, getItemsFromLocalStorage, setItemsToLocalStorage } from "../LocalStorage/LocalStorage";
 
 
+
 const Products = () => {
     const [items, setItems] = useState([]);
     const products = useLoaderData();
-
+    console.log(products)
     useEffect(()=>{
         // console.log("called the useEffects", products.length);
         // products.length > 0; this condition is activated from useEffect dependency [products]. 
@@ -59,10 +60,10 @@ const Products = () => {
         <div className="productsAndCart">
            <ul className="products-card-section">
                 {
-                    products.map((product, index) => <Product key={index} product = {product} ProductCardButtonHandler={ProductCardButtonHandler}></Product>)
+                    products?.map((product, index) => <Product key={index} product = {product} ProductCardButtonHandler={ProductCardButtonHandler}></Product>)
                 }
            </ul>
-           <Cart items={items} clearTheLocalStorage={clearTheLocalStorage}></Cart> 
+           <Cart items={items} clearTheLocalStorage={clearTheLocalStorage}></Cart>
            <ToastContainer></ToastContainer>
         </div>
     );

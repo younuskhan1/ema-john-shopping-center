@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Product.css";
 import Rating from 'react-rating';
+import { Link } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 
 const Product = ({product, ProductCardButtonHandler}) => {
     // console.log(product);
     // const {id} = useParams();
     // console.log(id);
-    const {img, name, price, ratings, seller} = product;
+    const {id, img, name, price, ratings, seller} = product;
     return (
         <div className='product-card-parent'>
             <div className='product-card'>
@@ -21,7 +22,8 @@ const Product = ({product, ProductCardButtonHandler}) => {
                 </div>
                 <div className='card-two-buttons-container'>
                     <div className='add-button-container'><button className='product-add-button' onClick={()=>ProductCardButtonHandler(product)}>Add To Cart<span className='cart-icon'><i className="fa-solid fa-cart-plus"></i></span></button></div>
-                    <div className='view-details-button-parent'><button className='view-details-button'>View Details</button></div>        
+                    <div className='view-details-button-parent'><Link to = {`/viewDetails/${id}`}
+                    ><button className='view-details-button' >View Details</button></Link></div>        
                 </div>
             </div>
         </div>
