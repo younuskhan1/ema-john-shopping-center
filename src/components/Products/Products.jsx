@@ -12,7 +12,7 @@ import { clearLocalStorage, getItemsFromLocalStorage, setItemsToLocalStorage } f
 const Products = () => {
     const [items, setItems] = useState([]);
     const products = useLoaderData();
-    console.log(products)
+    // console.log(products)
     useEffect(()=>{
         // console.log("called the useEffects", products.length);
         // products.length > 0; this condition is activated from useEffect dependency [products]. 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams} from "react-router-dom";
+import "./ViewDetails.css";
 
 const ViewDetails = () => {   
     const [product, setProduct] = useState({});
@@ -11,10 +12,20 @@ const ViewDetails = () => {
         const findProduct =  goods?.find((good) => good.id === id);
         setProduct(findProduct);
     },[id,goods]);
-    // console.log(product);
+    console.log(product);
     return (
         <div>
-            <h1>{product.name}</h1>
+            <div className="view-details-parent">
+                <div className="view-details-image-div"><img className="view-details-image" src={product.img} alt="" /></div>
+                <div className="view-detail-textual-information">
+                        <p>Category : {product.category}</p>
+                        <p>Name : {product.name}</p>
+                        <p>Manufacturer: {product.seller}</p>
+                        <p>Price : {product.price}</p>
+                        <p>Shipping Charge : {product.shipping}</p>
+                        <p>Available Stock : {product.stock}</p>
+                </div>
+            </div>
         </div>
     );
 };
