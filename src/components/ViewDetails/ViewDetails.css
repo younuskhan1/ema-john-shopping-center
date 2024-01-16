@@ -18,7 +18,108 @@
     height: 100%;
 }
 .view-detail-textual-information{
+    padding: 20px 0px 15px 15px;
     width: 300px;
     height: 350px;
     border: 2px solid blueviolet;
+}
+.view-category{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 10px ;
+}
+.view-name,
+.view-manufacturer,
+.view-price,
+.view-available-stock,
+.view-shipping-charge{
+    font-size: 18px;
+    font-weight: 900;
+    color: gray;
+}
+
+.view-details-add-to-cart-button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 60%;
+}
+
+.view-details-add-to-cart-button:hover,
+.view-details-add-to-cart-button:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.view-details-add-to-cart-button:hover {
+  transform: translateY(-1px);
+}
+
+.view-details-add-to-cart-button:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+.view-cart-icon{
+    font-size: 20px;
+    margin-right: 10px;
+}
+.view-details-add-button-parent{
+    text-align: center;
+    margin-top: 30px;
+}
+.view-cart-parent{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.view-of-added-products{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+}
+.view-cart-added-products{
+    position: relative;
+   
+}
+.view-basket{
+    font-size: 35px;
+    color: orangered;
+}
+.view-added-products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -17px;
+    right: -19px;
+    background-color: rgb(3, 182, 3);
+    color: white;
+    font-size: 17px;
+    height: 27px;
+    width: 27px;
+    text-align: center;
+    border-radius: 50%;
 }
