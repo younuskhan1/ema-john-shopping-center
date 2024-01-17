@@ -1,4 +1,4 @@
-.calculations-parent{
+.calculations-parent {
     width: 30%;
     height: 400px;
     padding: 0px 20px 20px;
@@ -56,20 +56,32 @@
     touch-action: manipulation;
     width: 100%;
     bottom: 0;
-  }
+}
   
-  .orders-review-clear-cart-button:disabled {
+.orders-review-clear-cart-button:disabled {
     cursor: default;
-  }
+}
   
-  .orders-review-clear-cart-button:active {
+.orders-review-clear-cart-button:active {
       box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
       /* background: #0064bd; */
-  }
+}
   
-  .orders-review-cart-button-icon{
+.orders-review-cart-button-icon{
       font-size: 20px;
       color: #ffff;
       margin-left: 10px;
-  }
-  
+}
+@media only screen and (max-width: 769px) {
+    .calculations-parent {
+        width: 78%;
+        margin: 0px auto 40px;
+        
+    }
+}
+@media only screen and (max-width: 426px) {
+    .calculations-parent{
+        width: auto;
+        margin: 0px 10px;
+    }
+}

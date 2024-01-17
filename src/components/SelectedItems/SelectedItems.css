@@ -21,10 +21,10 @@
     border-radius: 10px;
 }
 .selected-card-text{
-    font-weight: 600;
     line-height: 1.4rem;
     color: gray;
     padding-top: 5px;
+    padding: 0px 15px;
 }
 .selected-image-text{
     display: flex;
@@ -115,4 +115,44 @@
 .trash-icon-delete{
     font-size: 27px;
     color: rgba(235, 87, 87, 1);
+}
+
+@media only screen and (max-width: 426px) {
+    .selected-items-parent{
+       margin: 20px 10px 0px;
+    }
+    .selected-item-card-show{
+        flex-direction: column;
+        width: 600px;
+        height: auto;
+
+    }
+    .quantity-deleted{
+        width: 100%;
+        padding: 20px 0px;
+
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .selected-items-parent{
+       margin: 20px 10px 0px;
+    }
+    .selected-item-card-show{
+        flex-direction: column;
+        width: 600px;
+        height: auto;
+
+    }
+    .quantity-deleted{
+        width: 100%;
+        padding: 20px 0px;
+
+    }
+    .selected-card-text{
+        line-height: 1.2rem;
+        color: gray;
+        padding-top: 5px;
+        padding: 0px 15px;
+    }
 }

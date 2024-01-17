@@ -126,3 +126,18 @@
     text-align: center;
     border-radius: 50%;
 }
+@media only screen and (max-width: 426px) {
+    .view-details-parent{
+        flex-direction: column;
+        height: auto;
+        margin: 20px 0px;
+        padding: 0px 15px;
+    }
+    .view-details-image-div{
+        width: 100%;
+
+    }
+    .view-detail-textual-information{
+        width: 100%;
+    }
+}
