@@ -1,0 +1,11 @@
+.calculations-parent{
+    width: 30%;
+    background-color: rgba(255, 153, 0, 0.3);
+    border-radius: 10px;
+}
+.calculations-summary{
+    text-align: center;
+    padding: 30px 0px 20px;
+    border-bottom: 2px solid white;
+    color: red;
+}

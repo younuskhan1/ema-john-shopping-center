@@ -1,0 +1,118 @@
+.selected-items-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-item-card-show{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    height: 107px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #95A0A7;
+}
+.selected-card-image{
+    padding: 5px;
+    width: 120px;
+    height: 105px;
+    border-radius: 10px;
+}
+.selected-card-text{
+    font-weight: 600;
+    line-height: 1.4rem;
+    color: gray;
+    padding-top: 5px;
+}
+.selected-image-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+.quantity-deleted{
+    height: 100%;
+    width: 44%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.selected-item-quantity{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.increase-decrease-buttons{
+   display: flex;
+   align-items: center;
+}
+.quantity-selected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    background-color: rgb(255, 165, 0);
+    font-weight: 600;
+    color: white;
+    font-size: 19px;
+    z-index: 10;
+}
+.quantity-decrease,
+.quantity-increase {
+  background-color: rgba(235, 87, 87, 0.3);
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  font-family: ui-sans-serif,system-ui,system-ui,"Segoe UI","Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 100%;
+  margin: 0;
+  width: 40px;
+  height: 30px;
+  outline: 2px solid transparent;
+  text-align: center;
+  text-transform: none;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: -6px 8px 10px rgba(250, 146, 67, 0.1),0px 2px 2px rgba(203, 111, 41, 0.2);
+}
+
+.quantity-decrease:active,
+.quantity-increase:active {
+  background-color: rgba(235, 87, 87, 0.3);
+  transform: translateY(0.125rem);
+}
+
+.quantity-decrease:focus,
+.quantity-increase:focus {
+  box-shadow: rgb(119, 241, 241) 0 0 0 3px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
+}
+
+.quantity-decrease:hover,
+.quantity-increase:hover{
+    background-color: rgba(255, 2, 2, 0.3);
+}
+.delete-button-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(235, 87, 87, 0.3);
+}
+.delete-button-parent:hover{
+    background-color: rgba(251, 3, 3, 0.3);
+}
+.trash-icon-delete{
+    font-size: 27px;
+    color: rgba(235, 87, 87, 1);
+}

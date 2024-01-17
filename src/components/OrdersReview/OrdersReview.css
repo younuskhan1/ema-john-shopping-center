@@ -1,0 +1,9 @@
+.orders-review-parent{
+    display: flex;
+    margin: 50px 0px;
+}
+.selected-Items-parent{
+    width: 60%;
+    /* margin-left: 30px; */
+    
+}

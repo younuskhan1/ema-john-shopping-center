@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams} from "react-router-dom";
+import {Link, useLoaderData, useParams} from "react-router-dom";
 import "./ViewDetails.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -60,7 +60,7 @@ const ViewDetails = () => {
                                 <p className='view-added-products'>{agreeToAdd ? addedItems.length : dataFromLS.length}</p>
                             </div>
                         </div>
-                        {buttonRendering ? <div className="view-details-add-button-parent"><button className="view-details-add-to-cart-button">Orders Review <span className="view-arrow-icon"><i className="fa-solid fa-arrow-right"></i></span></button></div> :
+                        {buttonRendering ? <div className="view-details-add-button-parent"><Link to = "/ordersReview"><button className="view-details-add-to-cart-button" >Orders Review <span className="view-arrow-icon"><i className="fa-solid fa-arrow-right"></i></span></button></Link></div> :
                         <div className="view-details-add-button-parent"><button className="view-details-add-to-cart-button" onClick={() =>{handleAddProductAfterView(id)}}><span className="view-cart-icon"><i className="fa-solid fa-cart-shopping"></i></span>Add to Cart</button></div>}          
                 </div>
             </div>

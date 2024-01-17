@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Cart.css";
+import { Link } from 'react-router-dom';
 
 const Cart = ({items, clearTheLocalStorage}) => {
     return (
@@ -20,7 +21,7 @@ const Cart = ({items, clearTheLocalStorage}) => {
                 </ul>
             </div>
             <div><button className='clear-cart-button' onClick={clearTheLocalStorage}>Clear Cart <span className='cart-button-icon'><i className="fa-solid fa-trash-can"></i></span></button></div>
-            <div><button className='review-orders-button'>Review Orders <span className='cart-button-icon'><i className="fa-solid fa-arrow-right"></i></span></button></div>
+            <div><Link to = "/ordersReview"><button className='review-orders-button'>Review Orders <span className='cart-button-icon'><i className="fa-solid fa-arrow-right"></i></span></button></Link></div>
         </div>
     );
 };
