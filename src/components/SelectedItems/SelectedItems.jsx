@@ -1,11 +1,11 @@
-import { useState } from "react";
+
 import "./SelectedItems.css";
 import PropTypes from 'prop-types'; // ES6
 
-const SelectedItems = ({selectedItem}) => {
-    const [quantity, setQuantity] = useState(1);
+const SelectedItems = ({selectedItem,increaseQuantityHandler, decreaseQuantityHandler}) => {
+    
     // console.log(selectedItem);
-    const { img, name, shipping, price, seller} = selectedItem;
+    const { id, img, name, shipping, price, seller} = selectedItem;
     return (
         <div className="selected-items-parent">
             <div className="selected-item-card-show">
@@ -21,9 +21,9 @@ const SelectedItems = ({selectedItem}) => {
                <div className="quantity-deleted">
                     <div>
                         <div className="increase-decrease-buttons">
-                            <button className="quantity-decrease"><i className="fa-solid fa-minus"></i></button>
-                            <p className="quantity-selected">{quantity}</p>
-                            <button className="quantity-increase"><i className="fa-solid fa-plus"></i></button>
+                            <button className="quantity-decrease" onClick={() =>  decreaseQuantityHandler(id)}><i className="fa-solid fa-minus"></i></button>
+                            <p className="quantity-selected">{selectedItem.quantity}</p>
+                            <button className="quantity-increase" onClick={()=>increaseQuantityHandler(id)}><i className="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                     <div className="delete-button-parent"><i className="fa-regular fa-trash-can trash-icon-delete"></i></div>
@@ -35,6 +35,8 @@ const SelectedItems = ({selectedItem}) => {
 
 SelectedItems.propTypes = {
     selectedItem: PropTypes.object.isRequired,
+    increaseQuantityHandler:PropTypes.func.isRequired,
+    decreaseQuantityHandler: PropTypes.func.isRequired,
 }
 
 export default SelectedItems;

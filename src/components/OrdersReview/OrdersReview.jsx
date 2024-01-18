@@ -7,6 +7,7 @@ import "./OrdersReview.css";
 
 const OrdersReview = () => {
     const [selectedItems, setSelectedItems] = useState([]);
+    // const [quantity, setQuantity] = useState(1);
 
     const products = useLoaderData();
     
@@ -29,6 +30,16 @@ const OrdersReview = () => {
            
     },[products])
 
+    const increaseQuantityHandler = ( card_id) => {
+      setSelectedItems( selectedItems=> 
+        selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ))
+
+    }
+    const decreaseQuantityHandler = ( card_id) => {
+      setSelectedItems( selectedItems=> 
+        selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity - (item.quantity> 1 ? 1 : 0) } : item ))
+
+    }
 
     return (
         <div>
@@ -36,11 +47,17 @@ const OrdersReview = () => {
                 <ul className="selected-Items-parent">
                     {
 
-                    selectedItems?.map((selectedItem,index) => <SelectedItems key = {index} selectedItem = {selectedItem}></SelectedItems>)
+                    selectedItems?.map((selectedItem,index) => 
+                    <SelectedItems key = {index} 
+                    selectedItem = {selectedItem}
+                    increaseQuantityHandler={increaseQuantityHandler}
+                    decreaseQuantityHandler ={ decreaseQuantityHandler}
+                    // quantity={quantity}
+                    ></SelectedItems>)
 
                     }
                 </ul> 
-                <Calculations></Calculations>
+                <Calculations selectedItems={selectedItems}></Calculations>
             </div>
         </div>
     );

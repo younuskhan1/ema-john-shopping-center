@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types'; // ES6
 import "./Calculations.css";
 
-const Calculations = () => {
+const Calculations = ({selectedItems}) => {
     return (
         <div className="calculations-parent">
             <div className="calculations-sub-parent">
                 <h2 className="calculations-summary">Orders Summary</h2>
                 <div className="calculated-information">
-                  <p>Selected Items : </p>
+                  <p>Selected Items : {selectedItems.length}</p>
                   <p>Total Price : $</p>
                   <p>Total Shipping Charge : $</p>
                   <p>Total Payable Tax : $</p>
@@ -18,4 +19,7 @@ const Calculations = () => {
     );
 };
 
+Calculations.propTypes = {
+    selectedItems: PropTypes.array.isRequired,
+}
 export default Calculations;
