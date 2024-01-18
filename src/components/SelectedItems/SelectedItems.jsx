@@ -14,8 +14,8 @@ const SelectedItems = ({selectedItem}) => {
                     <div className="selected-card-text">
                             <h4>{name}</h4>
                             <p>Price : $ {price}</p>
-                            <p>Shipping Charge : $ {shipping}</p>
-                            <p>Manufacturer : {seller}</p>
+                            <p>Shipping : $ {shipping}</p>
+                            <p>Maker : {seller}</p>
                     </div>
                </div>
                <div className="quantity-deleted">
