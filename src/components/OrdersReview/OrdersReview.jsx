@@ -37,7 +37,7 @@ const OrdersReview = () => {
            
     },[products]);
 
-    selectedItems.length === 0 && <NoItemSelected></NoItemSelected>
+    
 
     const increaseQuantityHandler = (card_id, selectedItem) => {
         setSelectedItems( selectedItems=> 
@@ -57,37 +57,38 @@ const OrdersReview = () => {
 
     return (
         <div>
-            <div className="orders-review-parent">
-                <ul className="selected-Items-parent">
-                    
-                    { 
-                        isShowAll ? selectedItems?.map((selectedItem,index) => 
-                        <SelectedItems key = {index} 
-                        selectedItem = {selectedItem}
-                        agreement={agreement}
-                        singleItemTotalPrice ={singleItemTotalPrice}
-                        increaseQuantityHandler={increaseQuantityHandler}
-                        decreaseQuantityHandler ={ decreaseQuantityHandler}
-                        // quantity={quantity}
-                        ></SelectedItems>) 
-                        : 
-                        selectedItems?.slice(0, 3).map((selectedItem,index) => 
-                        <SelectedItems key = {index} 
-                        selectedItem = {selectedItem}
-                        agreement={agreement}
-                        singleItemTotalPrice ={singleItemTotalPrice}
-                        increaseQuantityHandler={increaseQuantityHandler}
-                        decreaseQuantityHandler ={ decreaseQuantityHandler}
-                        // quantity={quantity}
-                        ></SelectedItems>)
-                        
-                    }
-
-                {selectedItems.length > 3 ? <div className="show-all-button-div"><button className="button-show-all" onClick={() => setIsShowAll(!isShowAll)}>{isShowAll ? "Show Less": "Show All"}</button></div> : ""}
-                
-                </ul> 
-                <Calculations selectedItems={selectedItems}></Calculations>
-            </div>
+            {
+                selectedItems.length === 0 ? <NoItemSelected></NoItemSelected> :
+                    <div className="orders-review-parent">
+                        <ul className="selected-Items-parent">
+                            { 
+                                isShowAll ? selectedItems?.map((selectedItem,index) => 
+                                <SelectedItems key = {index} 
+                                selectedItem = {selectedItem}
+                                agreement={agreement}
+                                singleItemTotalPrice ={singleItemTotalPrice}
+                                increaseQuantityHandler={increaseQuantityHandler}
+                                decreaseQuantityHandler ={ decreaseQuantityHandler}
+                                // quantity={quantity}
+                                ></SelectedItems>) 
+                                : 
+                                selectedItems?.slice(0, 3).map((selectedItem,index) => 
+                                <SelectedItems key = {index} 
+                                selectedItem = {selectedItem}
+                                agreement={agreement}
+                                singleItemTotalPrice ={singleItemTotalPrice}
+                                increaseQuantityHandler={increaseQuantityHandler}
+                                decreaseQuantityHandler ={ decreaseQuantityHandler}
+                                // quantity={quantity}
+                                ></SelectedItems>)
+                                
+                            }
+                        {selectedItems.length > 3 ? <div className="show-all-button-div"><button className="button-show-all" onClick={() => setIsShowAll(!isShowAll)}>{isShowAll ? "Show Less": "Show All"}</button></div> : ""}
+                        </ul> 
+                        <Calculations selectedItems={selectedItems}></Calculations>
+                    </div>
+            }
+            
         </div>
     );
 };

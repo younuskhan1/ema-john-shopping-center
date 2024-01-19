@@ -1,0 +1,16 @@
+.no-item-found-image-parent{
+    width: 100%;
+    height: 85dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.no-item-found-image{
+    width: 400px;
+    height: 250px;
+}
+.no-item-found-text{
+    padding-top: 20px;
+    color: red;
+}

@@ -1,12 +1,13 @@
 import noItemImage from "../../images/item-not-found.png"; 
-
+import "./NoItemSelected.css"
 const NoItemSelected = () => {
     return (
         <div>
-            <div>
-                <img src={noItemImage} alt="" />
+            <div className="no-item-found-image-parent">
+                <img className="no-item-found-image" src={noItemImage} alt="" />
+                <h1 className="no-item-found-text">No Items Selected....</h1>
             </div>
-            <h1>No Item Selected....</h1>
+            
         </div>
     );
 };
