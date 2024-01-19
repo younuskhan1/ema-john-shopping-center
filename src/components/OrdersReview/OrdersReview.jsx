@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import Calculations from "../Calculations/Calculations";
 import SelectedItems from "../SelectedItems/SelectedItems";
 import "./OrdersReview.css";
+import NoItemSelected from "../NoItemSelected/NoItemSelected";
 
 const OrdersReview = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     // const [totalPrice, setTotalPrice] = useState(1);
     const [agreement, setAgreement] = useState(false)
     const [singleItemTotalPrice, setSingleItemTotalPrice] = useState();
-    const [dataLength, setDataLength] = useState(3);
+    const [isShowAll, setIsShowAll] = useState(false);
     
 
     // const [quantity, setQuantity] = useState(1);
@@ -34,7 +35,9 @@ const OrdersReview = () => {
             setSelectedItems(arrayOfSelectedItems);  
         } 
            
-    },[products])
+    },[products]);
+
+    selectedItems.length === 0 && <NoItemSelected></NoItemSelected>
 
     const increaseQuantityHandler = (card_id, selectedItem) => {
         setSelectedItems( selectedItems=> 
@@ -58,7 +61,17 @@ const OrdersReview = () => {
                 <ul className="selected-Items-parent">
                     
                     { 
-                        selectedItems?. slice(0,dataLength).map((selectedItem,index) => 
+                        isShowAll ? selectedItems?.map((selectedItem,index) => 
+                        <SelectedItems key = {index} 
+                        selectedItem = {selectedItem}
+                        agreement={agreement}
+                        singleItemTotalPrice ={singleItemTotalPrice}
+                        increaseQuantityHandler={increaseQuantityHandler}
+                        decreaseQuantityHandler ={ decreaseQuantityHandler}
+                        // quantity={quantity}
+                        ></SelectedItems>) 
+                        : 
+                        selectedItems?.slice(0, 3).map((selectedItem,index) => 
                         <SelectedItems key = {index} 
                         selectedItem = {selectedItem}
                         agreement={agreement}
@@ -69,7 +82,9 @@ const OrdersReview = () => {
                         ></SelectedItems>)
                         
                     }
-                   <div className={`show-all-button-div ${dataLength === selectedItems.length && "show-all-button-hidden"}`}><button className="button-show-all" onClick={()=>setDataLength(selectedItems.length)}>Show All</button></div>
+
+                {selectedItems.length > 3 ? <div className="show-all-button-div"><button className="button-show-all" onClick={() => setIsShowAll(!isShowAll)}>{isShowAll ? "Show Less": "Show All"}</button></div> : ""}
+                
                 </ul> 
                 <Calculations selectedItems={selectedItems}></Calculations>
             </div>
