@@ -7,6 +7,11 @@ import "./OrdersReview.css";
 
 const OrdersReview = () => {
     const [selectedItems, setSelectedItems] = useState([]);
+    // const [totalPrice, setTotalPrice] = useState(1);
+    const [agreement, setAgreement] = useState(false)
+    const [singleItemTotalPrice, setSingleItemTotalPrice] = useState();
+    
+
     // const [quantity, setQuantity] = useState(1);
 
     const products = useLoaderData();
@@ -30,15 +35,20 @@ const OrdersReview = () => {
            
     },[products])
 
-    const increaseQuantityHandler = ( card_id) => {
-      setSelectedItems( selectedItems=> 
-        selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ))
+    const increaseQuantityHandler = (card_id, selectedItem) => {
+        setSelectedItems( selectedItems=> 
+        selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ));
+        setSingleItemTotalPrice (selectedItem.quantity * selectedItem.price);
+        setAgreement(true);
+        // setTotalPrice(selectedItem.quantity * selectedItem.price);
 
     }
-    const decreaseQuantityHandler = ( card_id) => {
-      setSelectedItems( selectedItems=> 
-        selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity - (item.quantity> 1 ? 1 : 0) } : item ))
+    const decreaseQuantityHandler = ( card_id, selectedItem) => {
+       setSelectedItems( selectedItems=> 
+       selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity - (item.quantity> 1 ? 1 : 0) } : item ));
+       setSingleItemTotalPrice (selectedItem.quantity * selectedItem.price);
 
+        // setTotalPrice(selectedItem.quantity * selectedItem.price);
     }
 
     return (
@@ -50,6 +60,8 @@ const OrdersReview = () => {
                     selectedItems?.map((selectedItem,index) => 
                     <SelectedItems key = {index} 
                     selectedItem = {selectedItem}
+                    agreement={agreement}
+                    singleItemTotalPrice ={singleItemTotalPrice}
                     increaseQuantityHandler={increaseQuantityHandler}
                     decreaseQuantityHandler ={ decreaseQuantityHandler}
                     // quantity={quantity}
