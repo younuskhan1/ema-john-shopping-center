@@ -6,6 +6,7 @@ import Login from "../Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Products from "../Products/Products";
 import ViewDetails from "../ViewDetails/ViewDetails";
+import SignUp from "../SignUp/SignUp";
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const myCreatedRoutes = createBrowserRouter([
             {
                 path: "/login",
                 element : <Login></Login>
+            },
+            {
+                path: "/signup",
+                element :<SignUp></SignUp>
             },
            
         ]
