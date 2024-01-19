@@ -10,6 +10,7 @@ const OrdersReview = () => {
     // const [totalPrice, setTotalPrice] = useState(1);
     const [agreement, setAgreement] = useState(false)
     const [singleItemTotalPrice, setSingleItemTotalPrice] = useState();
+    const [dataLength, setDataLength] = useState(3);
     
 
     // const [quantity, setQuantity] = useState(1);
@@ -55,19 +56,20 @@ const OrdersReview = () => {
         <div>
             <div className="orders-review-parent">
                 <ul className="selected-Items-parent">
-                    {
-
-                    selectedItems?.map((selectedItem,index) => 
-                    <SelectedItems key = {index} 
-                    selectedItem = {selectedItem}
-                    agreement={agreement}
-                    singleItemTotalPrice ={singleItemTotalPrice}
-                    increaseQuantityHandler={increaseQuantityHandler}
-                    decreaseQuantityHandler ={ decreaseQuantityHandler}
-                    // quantity={quantity}
-                    ></SelectedItems>)
-
+                    
+                    { 
+                        selectedItems?. slice(0,dataLength).map((selectedItem,index) => 
+                        <SelectedItems key = {index} 
+                        selectedItem = {selectedItem}
+                        agreement={agreement}
+                        singleItemTotalPrice ={singleItemTotalPrice}
+                        increaseQuantityHandler={increaseQuantityHandler}
+                        decreaseQuantityHandler ={ decreaseQuantityHandler}
+                        // quantity={quantity}
+                        ></SelectedItems>)
+                        
                     }
+                   <div className={`show-all-button-div ${dataLength === selectedItems.length && "show-all-button-hidden"}`}><button className="button-show-all" onClick={()=>setDataLength(selectedItems.length)}>Show All</button></div>
                 </ul> 
                 <Calculations selectedItems={selectedItems}></Calculations>
             </div>
