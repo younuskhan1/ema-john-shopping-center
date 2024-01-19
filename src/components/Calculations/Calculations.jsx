@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Calculations.css";
 
-const Calculations = ({selectedItems}) => {
+const Calculations = ({selectedItems, clearCartFromCalculationComponent}) => {
     
     return (
         <div className="calculations-parent">
@@ -14,7 +14,7 @@ const Calculations = ({selectedItems}) => {
                   <p>Total Payable Tax : $</p>
                   <p><span className="grand-total">Grand Total : $</span></p>
                 </div>
-                <div><button className='orders-review-clear-cart-button'>Clear Cart <span className='orders-review-cart-button-icon'><i className="fa-solid fa-trash-can"></i></span></button></div>
+                <div><button className='orders-review-clear-cart-button' onClick={clearCartFromCalculationComponent}>Clear Cart <span className='orders-review-cart-button-icon'><i className="fa-solid fa-trash-can"></i></span></button></div>
             </div>
         </div>
     );
@@ -22,5 +22,6 @@ const Calculations = ({selectedItems}) => {
 
 Calculations.propTypes = {
     selectedItems: PropTypes.array.isRequired,
+    clearCartFromCalculationComponent:PropTypes.func.isRequired,
 }
 export default Calculations;

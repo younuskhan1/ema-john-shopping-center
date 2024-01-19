@@ -2,7 +2,11 @@
 import "./SelectedItems.css";
 import PropTypes from 'prop-types'; // ES6
 
-const SelectedItems = ({selectedItem, agreement ,increaseQuantityHandler, decreaseQuantityHandler,singleItemTotalPrice}) => {
+const SelectedItems = ({selectedItem,
+    agreement,increaseQuantityHandler,
+    decreaseQuantityHandler,
+    singleItemTotalPrice, 
+    removeSingleSelectedProduct}) => {
     
     // console.log(selectedItem);
     const { id, img, name, shipping, seller, price} = selectedItem;
@@ -26,7 +30,7 @@ const SelectedItems = ({selectedItem, agreement ,increaseQuantityHandler, decrea
                             <button className="quantity-increase" onClick={()=>increaseQuantityHandler(id,selectedItem)}><i className="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
-                    <div className="delete-button-parent"><i className="fa-regular fa-trash-can trash-icon-delete"></i></div>
+                    <div className="delete-button-parent" onClick={()=>removeSingleSelectedProduct(id)}><i className="fa-regular fa-trash-can trash-icon-delete"></i></div>
                </div>
             </div>
         </div>
@@ -39,6 +43,7 @@ SelectedItems.propTypes = {
     decreaseQuantityHandler: PropTypes.func.isRequired,
     singleItemTotalPrice:PropTypes.number.isRequired,
     agreement: PropTypes.bool.isRequired,
+    removeSingleSelectedProduct: PropTypes.func.isRequired,
 }
 
 export default SelectedItems;

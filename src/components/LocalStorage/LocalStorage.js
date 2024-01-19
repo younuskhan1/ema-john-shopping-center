@@ -14,8 +14,15 @@ const clearLocalStorage =()=>{
     localStorage.clear(allItemsOfLS);
 }
 
+const removeSingleSelectedItem = (id) =>{
+   const localStorageItems = getItemsFromLocalStorage();
+   const leftItems = localStorageItems.filter(item => item !== id)
+   localStorage.setItem("shopping-cart", JSON.stringify(leftItems));
+}
+
 
 export {setItemsToLocalStorage,
     getItemsFromLocalStorage,
     clearLocalStorage,
+    removeSingleSelectedItem,
 };

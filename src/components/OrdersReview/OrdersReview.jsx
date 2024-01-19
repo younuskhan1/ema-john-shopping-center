@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { getItemsFromLocalStorage } from "../LocalStorage/LocalStorage";
+import { clearLocalStorage, getItemsFromLocalStorage, removeSingleSelectedItem} from "../LocalStorage/LocalStorage";
 import { useEffect, useState } from "react";
 import Calculations from "../Calculations/Calculations";
 import SelectedItems from "../SelectedItems/SelectedItems";
@@ -37,8 +37,6 @@ const OrdersReview = () => {
            
     },[products]);
 
-    
-
     const increaseQuantityHandler = (card_id, selectedItem) => {
         setSelectedItems( selectedItems=> 
         selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ));
@@ -55,6 +53,17 @@ const OrdersReview = () => {
         // setTotalPrice(selectedItem.quantity * selectedItem.price);
     }
 
+    const clearCartFromCalculationComponent = () =>{
+       clearLocalStorage();
+       setSelectedItems([]);
+    }
+
+    const removeSingleSelectedProduct = (id) =>{
+        const leftItemsSelected = selectedItems.filter(Item => Item.id !== id);
+        removeSingleSelectedItem(id);
+        setSelectedItems(leftItemsSelected);   
+    }
+
     return (
         <div>
             {
@@ -69,6 +78,7 @@ const OrdersReview = () => {
                                 singleItemTotalPrice ={singleItemTotalPrice}
                                 increaseQuantityHandler={increaseQuantityHandler}
                                 decreaseQuantityHandler ={ decreaseQuantityHandler}
+                                removeSingleSelectedProduct ={removeSingleSelectedProduct}
                                 // quantity={quantity}
                                 ></SelectedItems>) 
                                 : 
@@ -79,13 +89,14 @@ const OrdersReview = () => {
                                 singleItemTotalPrice ={singleItemTotalPrice}
                                 increaseQuantityHandler={increaseQuantityHandler}
                                 decreaseQuantityHandler ={ decreaseQuantityHandler}
+                                removeSingleSelectedProduct ={removeSingleSelectedProduct}
                                 // quantity={quantity}
                                 ></SelectedItems>)
                                 
                             }
                         {selectedItems.length > 3 ? <div className="show-all-button-div"><button className="button-show-all" onClick={() => setIsShowAll(!isShowAll)}>{isShowAll ? "Show Less": "Show All"}</button></div> : ""}
                         </ul> 
-                        <Calculations selectedItems={selectedItems}></Calculations>
+                        <Calculations selectedItems={selectedItems} clearCartFromCalculationComponent={clearCartFromCalculationComponent}></Calculations>
                     </div>
             }
             
