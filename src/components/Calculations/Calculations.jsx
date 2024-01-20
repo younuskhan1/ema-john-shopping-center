@@ -1,16 +1,26 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Calculations.css";
+// import { useState } from 'react';
 
 
 const Calculations = ({selectedItems, clearCartFromCalculationComponent, clickedId}) => {
-    
-     const findClickerElement = selectedItems.find(selected => selected.id === clickedId);
-     
-     let totalElementPrice =0;
+    // const [clickedElement, setClickedElement] = useState([]);
+    // const [totalPrice, setTotalPrice] = useState(0)
+    // const findElementArray = [];
+    const findClickedElement = selectedItems.find(selected => selected.id === clickedId);
+ 
 
-     if(findClickerElement){
-        totalElementPrice = findClickerElement.quantity * findClickerElement.price;
-     }
+    const findElementArray = [];
+    if(findClickedElement){
+    findElementArray.push(findClickedElement);
+    }
+    
+    let total = 0;
+    for(let element of findElementArray){
+        total = total + element.price * element.quantity;
+        
+    }
+    
        
     
     return (
@@ -19,7 +29,7 @@ const Calculations = ({selectedItems, clearCartFromCalculationComponent, clicked
                 <h2 className="calculations-summary">Orders Summary</h2>
                 <div className="calculated-information">
                   <p>Selected Items : {selectedItems.length}</p>
-                  <p>Total Price : $ {totalElementPrice}</p>
+                  <p>Total Price : $ {total} </p>
                   <p>Total Shipping Charge : $</p>
                   <p>Total Payable Tax : $</p>
                   <p><span className="grand-total">Grand Total : $</span></p>
