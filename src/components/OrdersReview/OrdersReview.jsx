@@ -8,14 +8,9 @@ import NoItemSelected from "../NoItemSelected/NoItemSelected";
 
 const OrdersReview = () => {
     const [selectedItems, setSelectedItems] = useState([]);
-    // const [totalPrice, setTotalPrice] = useState(1);
-    const [agreement, setAgreement] = useState(false)
-    const [singleItemTotalPrice, setSingleItemTotalPrice] = useState();
+    // const [totalPrice, setTotalPrice] = useState(0);
     const [isShowAll, setIsShowAll] = useState(false);
     
-
-    // const [quantity, setQuantity] = useState(1);
-
     const products = useLoaderData();
     
     useEffect(()=>{
@@ -37,20 +32,14 @@ const OrdersReview = () => {
            
     },[products]);
 
-    const increaseQuantityHandler = (card_id, selectedItem) => {
-        setSelectedItems( selectedItems=> 
-        selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ));
-        setSingleItemTotalPrice ( selectedItem.price *  selectedItem.quantity);
-        setAgreement(true);
-        // setTotalPrice(selectedItem.quantity * selectedItem.price);
-
+    const increaseQuantityHandler = (card_id) => {
+        setSelectedItems(selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ));
+       
+        
     }
-    const decreaseQuantityHandler = ( card_id, selectedItem) => {
-       setSelectedItems( selectedItems=> 
-       selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity - (item.quantity> 1 ? 1 : 0) } : item ));
-       setSingleItemTotalPrice (selectedItem.quantity * selectedItem.price);
-
-        // setTotalPrice(selectedItem.quantity * selectedItem.price);
+    const decreaseQuantityHandler = ( card_id) => {
+       setSelectedItems(selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity - (item.quantity> 1 ? 1 : 0) } : item ));
+       
     }
 
     const clearCartFromCalculationComponent = () =>{
@@ -74,8 +63,6 @@ const OrdersReview = () => {
                                 isShowAll ? selectedItems?.map((selectedItem,index) => 
                                 <SelectedItems key = {index} 
                                 selectedItem = {selectedItem}
-                                agreement={agreement}
-                                singleItemTotalPrice ={singleItemTotalPrice}
                                 increaseQuantityHandler={increaseQuantityHandler}
                                 decreaseQuantityHandler ={ decreaseQuantityHandler}
                                 removeSingleSelectedProduct ={removeSingleSelectedProduct}
@@ -85,8 +72,6 @@ const OrdersReview = () => {
                                 selectedItems?.slice(0, 3).map((selectedItem,index) => 
                                 <SelectedItems key = {index} 
                                 selectedItem = {selectedItem}
-                                agreement={agreement}
-                                singleItemTotalPrice ={singleItemTotalPrice}
                                 increaseQuantityHandler={increaseQuantityHandler}
                                 decreaseQuantityHandler ={ decreaseQuantityHandler}
                                 removeSingleSelectedProduct ={removeSingleSelectedProduct}
@@ -96,7 +81,13 @@ const OrdersReview = () => {
                             }
                         {selectedItems.length > 3 ? <div className="show-all-button-div"><button className="button-show-all" onClick={() => setIsShowAll(!isShowAll)}>{isShowAll ? "Show Less": "Show All"}</button></div> : ""}
                         </ul> 
-                        <Calculations selectedItems={selectedItems} clearCartFromCalculationComponent={clearCartFromCalculationComponent}></Calculations>
+                        {/* {
+                            selectedItems?.map(item=> <Calculations key={item.id} item={item}  selectedItems={selectedItems} clearCartFromCalculationComponent={clearCartFromCalculationComponent}></Calculations>)
+                        } */}
+                        <Calculations 
+                        selectedItems={selectedItems} 
+                        clearCartFromCalculationComponent={clearCartFromCalculationComponent}
+                        ></Calculations>
                     </div>
             }
             
