@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'; // ES6
 import "./Calculations.css";
-import { useParams } from 'react-router-dom';
 
-const Calculations = ({selectedItems, clearCartFromCalculationComponent}) => {
+
+const Calculations = ({selectedItems, clearCartFromCalculationComponent, clickedId}) => {
     
-       const singlevalue = useParams();
-       console.log(singlevalue);
+     const findClickerElement = selectedItems.find(selected => selected.id === clickedId);
+     
+     let totalElementPrice =0;
+
+     if(findClickerElement){
+        totalElementPrice = findClickerElement.quantity * findClickerElement.price;
+     }
        
     
     return (
@@ -14,7 +19,7 @@ const Calculations = ({selectedItems, clearCartFromCalculationComponent}) => {
                 <h2 className="calculations-summary">Orders Summary</h2>
                 <div className="calculated-information">
                   <p>Selected Items : {selectedItems.length}</p>
-                  <p>Total Price : $</p>
+                  <p>Total Price : $ {totalElementPrice}</p>
                   <p>Total Shipping Charge : $</p>
                   <p>Total Payable Tax : $</p>
                   <p><span className="grand-total">Grand Total : $</span></p>
@@ -29,5 +34,6 @@ Calculations.propTypes = {
     selectedItems: PropTypes.array.isRequired,
     clearCartFromCalculationComponent:PropTypes.func.isRequired,
     item:PropTypes.object.isRequired,
+    clickedId: PropTypes.string.isRequired,
 }
 export default Calculations;
