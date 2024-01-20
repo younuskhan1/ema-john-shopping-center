@@ -13,7 +13,6 @@ const selectedItemsShippingCharges = selectedItems.map(selectedShipping=> select
 const totalShippingCharges = selectedItemsShippingCharges.reduce((previous, current)=> previous + current, 0)
 const grandTotal = (summation + taxationInNumber + totalShippingCharges).toFixed(2);
 
-    
     return (
         <div className="calculations-parent">
             <div className="calculations-sub-parent">
