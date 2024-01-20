@@ -8,7 +8,6 @@ import NoItemSelected from "../NoItemSelected/NoItemSelected";
 
 const OrdersReview = () => {
     const [selectedItems, setSelectedItems] = useState([]);
-    // const [totalPrice, setTotalPrice] = useState(0);
     const [isShowAll, setIsShowAll] = useState(false);
     
     const products = useLoaderData();
@@ -66,7 +65,6 @@ const OrdersReview = () => {
                                 increaseQuantityHandler={increaseQuantityHandler}
                                 decreaseQuantityHandler ={ decreaseQuantityHandler}
                                 removeSingleSelectedProduct ={removeSingleSelectedProduct}
-                                // quantity={quantity}
                                 ></SelectedItems>) 
                                 : 
                                 selectedItems?.slice(0, 3).map((selectedItem,index) => 
@@ -75,19 +73,13 @@ const OrdersReview = () => {
                                 increaseQuantityHandler={increaseQuantityHandler}
                                 decreaseQuantityHandler ={ decreaseQuantityHandler}
                                 removeSingleSelectedProduct ={removeSingleSelectedProduct}
-                                // quantity={quantity}
                                 ></SelectedItems>)
                                 
                             }
                         {selectedItems.length > 3 ? <div className="show-all-button-div"><button className="button-show-all" onClick={() => setIsShowAll(!isShowAll)}>{isShowAll ? "Show Less": "Show All"}</button></div> : ""}
                         </ul> 
-                        {/* {
-                            selectedItems?.map(item=> <Calculations key={item.id} item={item}  selectedItems={selectedItems} clearCartFromCalculationComponent={clearCartFromCalculationComponent}></Calculations>)
-                        } */}
-                        <Calculations 
-                        selectedItems={selectedItems}
-                        clearCartFromCalculationComponent={clearCartFromCalculationComponent}
-                        ></Calculations>
+            
+                        <Calculations selectedItems={selectedItems} clearCartFromCalculationComponent={clearCartFromCalculationComponent}></Calculations>
                     </div>
             }
             
