@@ -40,7 +40,7 @@ const OrdersReview = () => {
     const increaseQuantityHandler = (card_id, selectedItem) => {
         setSelectedItems( selectedItems=> 
         selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ));
-        setSingleItemTotalPrice (selectedItem.quantity * selectedItem.price);
+        setSingleItemTotalPrice ( selectedItem.price *  selectedItem.quantity);
         setAgreement(true);
         // setTotalPrice(selectedItem.quantity * selectedItem.price);
 
