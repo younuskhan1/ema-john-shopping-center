@@ -10,7 +10,6 @@ const OrdersReview = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     // const [totalPrice, setTotalPrice] = useState(0);
     const [isShowAll, setIsShowAll] = useState(false);
-    const [clickedId, setClickedId] = useState("")
     
     const products = useLoaderData();
     
@@ -35,12 +34,12 @@ const OrdersReview = () => {
 
     const increaseQuantityHandler = (card_id) => {
         setSelectedItems(selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity + 1 } : item ));
-        setClickedId(card_id);
+     
         
     }
     const decreaseQuantityHandler = ( card_id) => {
        setSelectedItems(selectedItems.map((item) => item.id === card_id ? {...item, quantity : item.quantity - (item.quantity> 1 ? 1 : 0) } : item ));
-       setClickedId(card_id);
+    
     }
 
     const clearCartFromCalculationComponent = () =>{
@@ -87,7 +86,6 @@ const OrdersReview = () => {
                         } */}
                         <Calculations 
                         selectedItems={selectedItems}
-                        clickedId={clickedId} 
                         clearCartFromCalculationComponent={clearCartFromCalculationComponent}
                         ></Calculations>
                     </div>
