@@ -7,6 +7,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import Products from "../Products/Products";
 import ViewDetails from "../ViewDetails/ViewDetails";
 import SignUp from "../SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -31,7 +32,8 @@ const myCreatedRoutes = createBrowserRouter([
             {
                 path: "/ordersReview",
                 loader: () => fetch("/products.json"),
-                element : <OrdersReview></OrdersReview>
+                element : <PrivateRoute><OrdersReview></OrdersReview></PrivateRoute>,
+                
             },
             {
                 path: "/login",

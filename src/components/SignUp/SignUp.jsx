@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
@@ -7,6 +7,7 @@ import { AuthContext } from "../UserContext/UserContext";
 const SignUp = () => {
 
  const {createUserEmailPassword} = useContext(AuthContext);
+ const navigate = useNavigate();
 
  const handleRegister =(event)=>{
   event.preventDefault();
@@ -21,10 +22,12 @@ const SignUp = () => {
     .then((response) => {
       const user = response.user;
       form.reset();
+      navigate('/');
       console.log(user);
     })
     .catch ((error)=>{
       const message = error.message;
+      form.reset();
       console.log(message);
     })
  }
