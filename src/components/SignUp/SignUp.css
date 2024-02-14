@@ -7,10 +7,11 @@
 }
 .sign-up-form{
     width: 350px;
-    height: 460px;
+    height: 520px;
     border-radius: 10px;
     border: 1px solid rgba(149, 160, 167, 1);
     padding: 25px;  
+    margin-top: 30px;
 }
 .login-heading {
     text-align: center;
