@@ -7,15 +7,17 @@ import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({children}) => {
     const {user} = useContext(AuthContext);
+    console.log(user);
 
-    if(!user.email){
-        return <Navigate to="/login"></Navigate>
+    if(user){
+        return children;  
     }
-    return children;
-    
+
+    return <Navigate to="/login"></Navigate>  
 };
 
-PrivateRoute.propTypes ={
-    children:PropTypes.node,
-}
+PrivateRoute.propTypes = {
+    children: PropTypes.node,
+};
+
 export default PrivateRoute;

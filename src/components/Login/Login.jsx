@@ -5,8 +5,6 @@ import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
 
 const Login = () => {
-  const {user} = useContext(AuthContext);
- 
 
   const {signInEmailPassword} = useContext(AuthContext);
   const navigate = useNavigate();
@@ -22,13 +20,13 @@ const Login = () => {
     signInEmailPassword (email, password)
 
     .then((response)=>{
-      const userInfo = response.user;
+      const user = response.user;
       form.reset();
       navigate('/');
       // const userName = user.displayName;
-     console.log(user.email);
+    //  console.log(user.email);
       // console.log(userName);
-      console.log(userInfo);
+      console.log(user);
 
     })
     .catch((error)=>{

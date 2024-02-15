@@ -4,7 +4,9 @@ import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
 const Navbar = () => {
+
   const {logOut, user} = useContext(AuthContext);
+  
     return (
         <div className="nav-parent">
             <div><img src={image} alt="navbar logo" /></div>
@@ -22,7 +24,7 @@ const Navbar = () => {
                       isActive ? "active" : ""
                     }>Orders Review</NavLink>
                 {
-                  user?.email? <NavLink to = "/login" className={({ isActive}) =>
+                  user?.email? <NavLink to="/login" className={({ isActive}) =>
                   isActive ? "active" : ""
                 } onClick={logOut}>Log out</NavLink>
                 :

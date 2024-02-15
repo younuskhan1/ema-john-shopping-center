@@ -9,20 +9,21 @@ import ViewDetails from "../ViewDetails/ViewDetails";
 import SignUp from "../SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
+
 const myCreatedRoutes = createBrowserRouter([
     {
         path : "/",
-        element : <MainLayout></MainLayout>,
-        errorElement : <ErrorPage></ErrorPage>,
-        children : [
+        element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
                 path: "/",
-                element : <Home></Home>
+                element: <Home></Home>
             },
             {
                 path: "/products",
                 loader: () => fetch("/products.json"),
-                element : <Products></Products>
+                element: <Products></Products>
             },
             {   
                 path: "/viewDetails/:id",
@@ -32,16 +33,16 @@ const myCreatedRoutes = createBrowserRouter([
             {
                 path: "/ordersReview",
                 loader: () => fetch("/products.json"),
-                element : <PrivateRoute><OrdersReview></OrdersReview></PrivateRoute>,
+                element: <PrivateRoute><OrdersReview></OrdersReview></PrivateRoute>
                 
             },
             {
                 path: "/login",
-                element : <Login></Login>
+                element: <Login></Login>
             },
             {
                 path: "/signup",
-                element :<SignUp></SignUp>
+                element:<SignUp></SignUp>
             },
            
         ]
