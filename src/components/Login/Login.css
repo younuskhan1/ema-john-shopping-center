@@ -7,7 +7,7 @@
 }
 .login-form{
     width: 350px;
-    height: 455px;
+    height: 520px;
     border-radius: 10px;
     border: 1px solid rgba(149, 160, 167, 1);
     padding: 25px;  
@@ -111,6 +111,10 @@ div input {
 }
 
 .google-icon{
+    padding-right: 7px;
+    font-size: 17px;
+}
+.github-icon{
     padding-right: 7px;
     font-size: 17px;
 }

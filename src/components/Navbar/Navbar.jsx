@@ -8,7 +8,7 @@ const Navbar = () => {
   const {logOut, user} = useContext(AuthContext);
   // we are getting the user value at navbar component but the user value is 
   // unavailable at privateRoute component. but why ???? 
-  console.log(user);
+  // console.log(user);
 
     return (
         <div className="nav-parent">
@@ -31,7 +31,7 @@ const Navbar = () => {
                   // you can use the conditions of (user && user.uid) or (user) or (user?.email) or
                   // (user?.uid) or (user && user.email) at below line. 
                   // wrong system is (user.email) or (user.uid) what you cannot use at below line.
-                  user?.email ? <NavLink to="/login" className={({ isActive}) =>
+                  (user?.email || user?.displayName)? <NavLink to="/login" className={({ isActive}) =>
                   isActive ? "active" : ""
                 } onClick={logOut}>Log out</NavLink>
                 :

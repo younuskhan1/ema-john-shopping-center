@@ -1,4 +1,4 @@
-import {createUserWithEmailAndPassword,
+import {GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 onAuthStateChanged, 
 signInWithEmailAndPassword, 
 signInWithPopup, 
@@ -13,6 +13,8 @@ const UserContext = ({children}) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const createUserEmailPassword = (email, password)=>{
     setLoading(true);
@@ -27,9 +29,13 @@ const logOut = ()=>{
     setLoading(true);
     return signOut(auth);
 }
-const googleSignIn = (googleProvider)=>{
+const googleSignIn = ()=>{
     setLoading(true);
     return signInWithPopup(auth, googleProvider)
+}
+const githubSignIn =()=>{
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
 }
 useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
@@ -46,6 +52,7 @@ const authInfo = {
     signInEmailPassword,
     logOut,
     googleSignIn,
+    githubSignIn,
     loading,
     user,
     };

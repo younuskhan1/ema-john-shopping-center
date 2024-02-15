@@ -7,7 +7,7 @@ import "./PrivateRoute.css";
 const PrivateRoute = ({children}) => {
     const {user,loading} = useContext(AuthContext);
     const location = useLocation();
-    console.log(user);
+    // console.log(user);
     if(loading){
         return <div className="private-loading"> loading....</div>
     }
@@ -16,7 +16,7 @@ const PrivateRoute = ({children}) => {
     // (user?.uid) or (user && user.email) at below if block. 
     // wrong system is (user.email) or (user.uid) what you cannot use at below if block.
 
-    if(user && user.email){
+    if(user && (user.email || user.displayName)){
         return children;  
     }
     return <Navigate to="/login" state = {{from:location}} replace ></Navigate>  

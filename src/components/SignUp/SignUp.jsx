@@ -4,12 +4,13 @@ import "./SignUp.css";
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
 import toast, { Toaster } from "react-hot-toast";
-import { GoogleAuthProvider } from "firebase/auth";
+import SocialMediaLogIn from "../SocialMediaLogIn/SocialMediaLogIn";
+// import { GoogleAuthProvider } from "firebase/auth";
 
 const SignUp = () => {
 
- const {createUserEmailPassword, googleSignIn} = useContext(AuthContext);
- const googleProvider = new GoogleAuthProvider();
+ const {createUserEmailPassword} = useContext(AuthContext);
+//  const googleProvider = new GoogleAuthProvider();
  const navigate = useNavigate();
 
  const handleRegister =(event)=>{
@@ -41,18 +42,18 @@ const SignUp = () => {
     })
  }
 
-  const handleGoogleSignIn =()=>{
-    googleSignIn(googleProvider)
-    .then((response) => {
-    const user = response.user;
-    navigate('/');
-    console.log(user);
-  })
-    .catch ((error)=>{
-    const message = error.message;
-    toast.error(message);
-  })
-}
+//   // const handleGoogleSignIn =()=>{
+//   //   googleSignIn(googleProvider)
+//   //   .then((response) => {
+//   //   const user = response.user;
+//   //   navigate('/');
+//   //   console.log(user);
+//   // })
+//   //   .catch ((error)=>{
+//   //   const message = error.message;
+//   //   toast.error(message);
+//   // })
+// }
 
 
     return (
@@ -73,9 +74,10 @@ const SignUp = () => {
                 <br />
                 <p className="new-to-ema-john">Already have an account ? <Link className="login-link" to = "/login"><span className="create-new-account">Please, Login !</span></Link></p>
               </form>
-              <button className="continue-with-google" onClick={handleGoogleSignIn}><i className="fa-brands fa-google google-icon"></i>Continue with Google</button>
+              <SocialMediaLogIn></SocialMediaLogIn>
+              {/* <button className="continue-with-google" onClick={handleGoogleSignIn}><i className="fa-brands fa-google google-icon"></i>Continue with Google</button> */}
            </div>
-           <Toaster position="top-center" reverseOrder={false}/>
+           <Toaster position="top-center"/>
         </div>
     );
 };

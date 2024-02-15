@@ -3,12 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
-import { GoogleAuthProvider } from 'firebase/auth';
+// import { GoogleAuthProvider } from 'firebase/auth';
+import SocialMediaLogIn from '../SocialMediaLogIn/SocialMediaLogIn';
 
 const Login = () => {
 
-  const {signInEmailPassword, googleSignIn} = useContext(AuthContext);
-  const googleProvider = new GoogleAuthProvider();
+  const {signInEmailPassword} = useContext(AuthContext);
+ 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -27,9 +28,6 @@ const Login = () => {
       const user = response.user;
       form.reset();
       navigate(from, {replace: true});
-      // const userName = user.displayName;
-    //  console.log(user.email);
-      // console.log(userName);
       console.log(user);
 
     })
@@ -39,18 +37,7 @@ const Login = () => {
       toast.error(errorMessage);
     })
   }
-  const handleGoogleSignIn =()=>{
-    googleSignIn(googleProvider)
-    .then((response) => {
-    const user = response.user;
-    navigate('/');
-    console.log(user);
-  })
-    .catch ((error)=>{
-    const message = error.message;
-    toast.error(message);
-  })
-}
+
 
    return (
         <div className="login-form-parent">
@@ -58,20 +45,19 @@ const Login = () => {
               <form onSubmit={handleLogIn}> 
                 <h2 className="login-heading">Login</h2>
                 <p className="email-title">Name</p>
-                <input type="text" name="name" id=""/>
+                <input type="text" name="name" id="name"/>
                 <p className="email-title">Email</p>
-                <input type="email" name="email" id=""/>
+                <input type="email" name="email" id="email"/>
                 <p className="login-name">Password</p>
-                <input type="password" name="password" id="" />
+                <input type="password" name="password" id="password" />
                 <br />
                 <button type="submit" className="login-button">Login</button>
                 <br />
                 <p className="new-to-ema-john">New to ema-john ? <Link className="signup-link" to = "/signup" ><span className="create-new-account">Create new account !</span></Link></p>
-               
-              </form>
-              <button type="submit" className="continue-with-google" onClick={ handleGoogleSignIn}><i className="fa-brands fa-google google-icon"></i>Continue with Google</button>
-           </div>
-           <Toaster position="top-center" reverseOrder={false}></Toaster>
+              </form> 
+              <SocialMediaLogIn></SocialMediaLogIn>
+            </div>
+           <Toaster position="top-center"></Toaster>
         </div>
     );
 };
