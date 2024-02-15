@@ -1,12 +1,16 @@
-
-import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-  const {signInEmailPassword} = useContext(AuthContext);
+  const {signInEmailPassword, googleSignIn} = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
   const handleLogIn = (event)=>{
@@ -22,7 +26,7 @@ const Login = () => {
     .then((response)=>{
       const user = response.user;
       form.reset();
-      navigate('/');
+      navigate(from, {replace: true});
       // const userName = user.displayName;
     //  console.log(user.email);
       // console.log(userName);
@@ -32,10 +36,21 @@ const Login = () => {
     .catch((error)=>{
       const errorMessage = error.message;
       form.reset();
-      console.log(errorMessage);
-     
+      toast.error(errorMessage);
     })
   }
+  const handleGoogleSignIn =()=>{
+    googleSignIn(googleProvider)
+    .then((response) => {
+    const user = response.user;
+    navigate('/');
+    console.log(user);
+  })
+    .catch ((error)=>{
+    const message = error.message;
+    toast.error(message);
+  })
+}
 
    return (
         <div className="login-form-parent">
@@ -52,9 +67,11 @@ const Login = () => {
                 <button type="submit" className="login-button">Login</button>
                 <br />
                 <p className="new-to-ema-john">New to ema-john ? <Link className="signup-link" to = "/signup" ><span className="create-new-account">Create new account !</span></Link></p>
-                <button type="submit" className="continue-with-google"><i className="fa-brands fa-google google-icon"></i>Continue with Google</button>
+               
               </form>
+              <button type="submit" className="continue-with-google" onClick={ handleGoogleSignIn}><i className="fa-brands fa-google google-icon"></i>Continue with Google</button>
            </div>
+           <Toaster position="top-center" reverseOrder={false}></Toaster>
         </div>
     );
 };

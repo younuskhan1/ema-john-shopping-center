@@ -1,12 +1,16 @@
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
 import PropTypes from 'prop-types'; // ES6
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
+import "./PrivateRoute.css";
 
 const PrivateRoute = ({children}) => {
-    const {user} = useContext(AuthContext);
+    const {user,loading} = useContext(AuthContext);
+    const location = useLocation();
     console.log(user);
-
+    if(loading){
+        return <div className="private-loading"> loading....</div>
+    }
     // optional chaining is mandatory below line otherwise you will get error.
     // you can use the conditions of (user && user.uid) or (user) or (user?.email) or
     // (user?.uid) or (user && user.email) at below if block. 
@@ -15,7 +19,7 @@ const PrivateRoute = ({children}) => {
     if(user && user.email){
         return children;  
     }
-    return <Navigate to="/login"></Navigate>  
+    return <Navigate to="/login" state = {{from:location}} replace ></Navigate>  
 };
 
 PrivateRoute.propTypes = {

@@ -3,10 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useContext } from "react";
 import { AuthContext } from "../UserContext/UserContext";
+import toast, { Toaster } from "react-hot-toast";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const SignUp = () => {
 
- const {createUserEmailPassword} = useContext(AuthContext);
+ const {createUserEmailPassword, googleSignIn} = useContext(AuthContext);
+ const googleProvider = new GoogleAuthProvider();
  const navigate = useNavigate();
 
  const handleRegister =(event)=>{
@@ -18,6 +21,12 @@ const SignUp = () => {
   const confirmPassword = form.confirmPassword.value;
   console.log(name, email, password, confirmPassword);
 
+  if(password !== confirmPassword){
+    form.reset();
+    return toast.error("password and confirm password must be same.");
+  }
+  
+
   createUserEmailPassword(email, password)
     .then((response) => {
       const user = response.user;
@@ -28,9 +37,22 @@ const SignUp = () => {
     .catch ((error)=>{
       const message = error.message;
       form.reset();
-      console.log(message);
+      toast.error(message);
     })
  }
+
+  const handleGoogleSignIn =()=>{
+    googleSignIn(googleProvider)
+    .then((response) => {
+    const user = response.user;
+    navigate('/');
+    console.log(user);
+  })
+    .catch ((error)=>{
+    const message = error.message;
+    toast.error(message);
+  })
+}
 
 
     return (
@@ -50,9 +72,10 @@ const SignUp = () => {
                 <button className="login-button">Sign Up</button>
                 <br />
                 <p className="new-to-ema-john">Already have an account ? <Link className="login-link" to = "/login"><span className="create-new-account">Please, Login !</span></Link></p>
-                <button className="continue-with-google"><i className="fa-brands fa-google google-icon"></i>Continue with Google</button>
               </form>
+              <button className="continue-with-google" onClick={handleGoogleSignIn}><i className="fa-brands fa-google google-icon"></i>Continue with Google</button>
            </div>
+           <Toaster position="top-center" reverseOrder={false}/>
         </div>
     );
 };
