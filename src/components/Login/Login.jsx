@@ -1,12 +1,13 @@
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../UserContext/UserContext";
 // import { GoogleAuthProvider } from 'firebase/auth';
 import SocialMediaLogIn from '../SocialMediaLogIn/SocialMediaLogIn';
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
 
   const {signInEmailPassword} = useContext(AuthContext);
  
@@ -28,6 +29,7 @@ const Login = () => {
       const user = response.user;
       form.reset();
       navigate(from, {replace: true});
+     
       console.log(user);
 
     })
@@ -49,7 +51,7 @@ const Login = () => {
                 <p className="email-title">Email</p>
                 <input type="email" name="email" id="email"/>
                 <p className="login-name">Password</p>
-                <input type="password" name="password" id="password" />
+                <div className='password-eye-parent'><input type={showPassword? "text" : "password"} name="password" id="password" /><span onClick={()=>setShowPassword(!showPassword)}>{showPassword? <i className="fa-regular fa-eye-slash show-input-password"></i>: <i className="fa-regular fa-eye show-input-password"></i>}</span></div>
                 <br />
                 <button type="submit" className="login-button">Login</button>
                 <br />

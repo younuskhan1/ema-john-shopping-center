@@ -38,6 +38,16 @@ div input {
 .login-name{
     padding: 10px 0px;
 }
+.show-input-password{
+    position: absolute;
+    bottom: 8px;
+    left: 270px;
+    cursor: pointer;
+}
+.password-eye-parent{
+    position: relative;
+    background-color: red;
+}
 
 .login-button {
   appearance: button;
@@ -124,4 +134,10 @@ div input {
 }
 .signup-link{
     text-decoration: none;
+}
+
+@media only screen and (max-width: 321px) {
+    .show-input-password{
+        left: 240px;
+    }
 }

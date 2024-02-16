@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../UserContext/UserContext";
 import toast, { Toaster } from "react-hot-toast";
 import SocialMediaLogIn from "../SocialMediaLogIn/SocialMediaLogIn";
@@ -9,6 +9,8 @@ import SocialMediaLogIn from "../SocialMediaLogIn/SocialMediaLogIn";
 
 const SignUp = () => {
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
  const {createUserEmailPassword} = useContext(AuthContext);
 //  const googleProvider = new GoogleAuthProvider();
  const navigate = useNavigate();
@@ -66,9 +68,9 @@ const SignUp = () => {
                 <p className="email-title">Email</p>
                 <input type="email" name="email" id="email"/>
                 <p className="login-name">Password</p>
-                <input type="password" name="password" id="password" />
+                <div className='password-eye-parent'><input type={showPassword? "text" : "password"} name="password" /><span onClick={()=>setShowPassword(!showPassword)}>{showPassword? <i className="fa-regular fa-eye-slash show-input-password"></i>: <i className="fa-regular fa-eye show-input-password"></i>}</span></div>
                 <p className="login-name">Confirm Password</p>
-                <input type="password" name="confirmPassword" id="confirmPassword" />
+                <div className='password-eye-parent'><input type={showConfirmPassword? "text" : "password"} name="confirmPassword" /><span onClick={()=>setShowConfirmPassword(!showConfirmPassword)}>{showConfirmPassword? <i className="fa-regular fa-eye-slash show-input-password"></i>: <i className="fa-regular fa-eye show-input-password"></i>}</span></div>
                 <br />
                 <button className="login-button">Sign Up</button>
                 <br />
