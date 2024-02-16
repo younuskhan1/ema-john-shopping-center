@@ -7,7 +7,7 @@
 }
 .login-form{
     width: 350px;
-    height: 520px;
+    height: 580px;
     border-radius: 10px;
     border: 1px solid rgba(149, 160, 167, 1);
     padding: 25px;  
@@ -115,6 +115,10 @@ div input {
     font-size: 17px;
 }
 .github-icon{
+    padding-right: 7px;
+    font-size: 17px;
+}
+.facebook-icon{
     padding-right: 7px;
     font-size: 17px;
 }

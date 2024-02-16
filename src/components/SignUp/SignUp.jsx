@@ -62,13 +62,13 @@ const SignUp = () => {
               <form onSubmit={handleRegister}> 
                 <h2 className="login-heading">SignUp</h2>
                 <p className="email-title">Name</p>
-                <input type="text" name="name" id=""/>
+                <input type="text" name="name" id="name"/>
                 <p className="email-title">Email</p>
-                <input type="email" name="email" id=""/>
+                <input type="email" name="email" id="email"/>
                 <p className="login-name">Password</p>
-                <input type="password" name="password" id="" />
+                <input type="password" name="password" id="password" />
                 <p className="login-name">Confirm Password</p>
-                <input type="password" name="confirmPassword" id="" />
+                <input type="password" name="confirmPassword" id="confirmPassword" />
                 <br />
                 <button className="login-button">Sign Up</button>
                 <br />
