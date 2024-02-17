@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../UserContext/UserContext";
-import toast, { Toaster } from "react-hot-toast";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import SocialMediaLogIn from "../SocialMediaLogIn/SocialMediaLogIn";
 import { sendEmailVerification } from "firebase/auth";
 import auth from "../firebase/firebase.config";
@@ -32,13 +33,12 @@ const SignUp = () => {
   }
   createUserEmailPassword(email, password)
     .then((response) => {
-      const user = response.user;
+      const userInfo = response.user;
       form.reset();
       navigate('/');
       emailVerification();
-     console.log(user);
+     console.log(userInfo);
     })
-
     .catch ((error)=>{
       const message = error.message;
       form.reset();
@@ -47,13 +47,12 @@ const SignUp = () => {
  }
  //  email verification 
 const emailVerification =()=>{ 
-       sendEmailVerification(auth.currentUser)
-       .then(()=>{
-       alert("Please check your email to verify your email address.");
-       });
+      sendEmailVerification(auth.currentUser)
+      .then(()=>{
+      // console.log(auth.currentUser);
+      alert("Please check your email to verify your email address.");
+    });
 }
-
-
 
     return (
         <div className="sign-up-form-parent">
@@ -75,7 +74,7 @@ const emailVerification =()=>{
               </form>
               <SocialMediaLogIn></SocialMediaLogIn>
            </div>
-           <Toaster position="top-center"/>
+           <ToastContainer/>
         </div>
     );
 };

@@ -1,4 +1,5 @@
-import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useContext, useState } from "react";
@@ -8,7 +9,6 @@ import SocialMediaLogIn from '../SocialMediaLogIn/SocialMediaLogIn';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-
   const {signInEmailPassword} = useContext(AuthContext);
  
   const location = useLocation();
@@ -29,7 +29,6 @@ const Login = () => {
       const user = response.user;
       form.reset();
       navigate(from, {replace: true});
-     
       console.log(user);
 
     })
@@ -59,7 +58,7 @@ const Login = () => {
               </form> 
               <SocialMediaLogIn></SocialMediaLogIn>
             </div>
-           <Toaster position="top-center"></Toaster>
+           <ToastContainer></ToastContainer>
         </div>
     );
 };
